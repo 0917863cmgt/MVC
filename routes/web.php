@@ -1,6 +1,10 @@
 <?php
 
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\File;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,21 +20,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('homepage');
 });
+
 Route::get('/news', function () {
-    return view('news');
+    return view('news', [
+        'articles' => Article::all()
+    ]);
 });
+
 Route::get('/news/{article}', function ($slug) {
-    $path = __DIR__ . "/../resources/news/{$slug}.html";
-
-    if (!file_exists($path)){
-        abort(404);
-    }
-    $post = cache()->remember("news.{$slug}", now()->addDay(1), function() use ($path){
-        var_dump('in cache');
-        return file_get_contents($path);
-    });
-
+    //Find an article by its slug and return a view called "news-article"
+    $article = Article::find($slug);
     return view('news-article', [
-        'post' => $post
+        'article' => $article
     ]);
 })->where('article', '[A-z_/-]+');

@@ -14,7 +14,10 @@
 </head>
 <body id="news">
 <article>
-    <?= $post; ?>
+    <h1>
+        {{$article->title}}
+    </h1>
+    <p>{{$article->body}}</p>
 </article>
 
 <a href="/news">Go Back</a>
