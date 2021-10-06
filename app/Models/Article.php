@@ -38,4 +38,13 @@ class Article
     public static function find($slug){
         return static::all()->firstWhere('slug', $slug);
     }
+
+    public static function findOrFail($slug){
+        $article = static::find($slug);
+
+        if(!$article){
+            throw new ModelNotFoundException();
+        }
+        return $article;
+    }
 }
