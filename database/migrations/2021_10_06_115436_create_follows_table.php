@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFollowingsTable extends Migration
+class CreateFollowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateFollowingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('followings', function (Blueprint $table) {
+        Schema::create('follows', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignIdFor('user_id')->constrained('users', 'id');
             $table->string('user_full_name');
-            $table->foreignId('following_id')->constrained();
-            $table->string('following_full_name');
+            $table->foreignId('follow_id')->constrained('users' ,'id');
+            $table->string('follow_full_name');
             $table->timestamps();
         });
     }

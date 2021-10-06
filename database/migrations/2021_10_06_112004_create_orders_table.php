@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('order_number');
-            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignId('user_id')->constrained('users', 'id');
             $table->string('costumer_name');
             $table->string('to_street');
             $table->string('to_house');
@@ -25,7 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('to_zip');
             $table->string('to_country');
             $table->dateTime('ship_date');
-            $table->foreignIdFor(Product::class)->constrained();
+            $table->foreignIdFor('product_id')->constrained('products', 'id');
             $table->timestamps();
         });
     }

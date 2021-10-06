@@ -15,10 +15,10 @@ class CreateHighlightsCommentLikesTable extends Migration
     {
         Schema::create('highlights_comment_likes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('highlight_id')->constrained();
-            $table->foreignId('highlight_author_id')->constrained();
-            $table->foreignId('comment_id')->constrained();
-            $table->foreignId('like_user_id')->constrained();
+            $table->foreignId('highlight_id')->constrained('highlights', 'id');
+            $table->foreignId('highlight_author_id')->constrained('highlights', 'author_id');
+            $table->foreignId('comment_id')->constrained('highlights_comments', 'id');
+            $table->foreignId('like_user_id')->constrained('users', 'id');
             $table->string('like_user_name')->constrained();
             $table->timestamps();
         });
