@@ -24,7 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('to_zip');
             $table->string('to_country');
             $table->dateTime('ship_date');
-            $table->foreignIdFor('product_id')->constrained('products', 'id');
+            $table->foreignId('product_id')->constrained('products', 'id');
             $table->timestamps();
         });
     }
