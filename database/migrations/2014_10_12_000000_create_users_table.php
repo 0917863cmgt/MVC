@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->date('birthdate');
             $table->string('street_name', 50);
             $table->string('house_number_and_extension', 5);
-            $table->string('postal_code', 5);
+            $table->string('postal_code', 8);
             $table->string('country',56);
             $table->string('phone_number', 10);
             $table->string('profile_image')->nullable();
@@ -45,6 +45,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::drop('follows');
         Schema::dropIfExists('users');
     }
 }
