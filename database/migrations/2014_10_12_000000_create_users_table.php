@@ -15,10 +15,10 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->integer('user_role')->default(1);
+            $table->integer('role')->default(1);
             $table->string('first_name');
             $table->string('middle_name')->nullable();
-            $table->string('insertion', 6)->nullable();
+            $table->string('insertion', 20)->nullable();
             $table->string('last-name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -30,9 +30,9 @@ class CreateUsersTable extends Migration
             $table->string('postal_code', 5);
             $table->string('country',56);
             $table->string('phone_number', 10);
-            $table->string('user_image')->nullable();
-            $table->string('user_background_image')->nullable();
-            $table->string('user_bio')->nullable();
+            $table->string('profile_image')->nullable();
+            $table->string('background_image')->nullable();
+            $table->string('bio')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
