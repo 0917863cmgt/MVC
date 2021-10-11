@@ -17,6 +17,7 @@
     <h1>
         {{$article->title}}
     </h1>
+    <p><a href="/news/category/{{$article->category->slug}}">{{$article->category->name}}</a></p>
     <p class="summary">{{$article->article_summary}}</p>
     <p>{{$article->article_body}}</p>
 </article>
