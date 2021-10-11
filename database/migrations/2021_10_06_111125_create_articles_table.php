@@ -17,7 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->foreignId('author_id')->constrained('users', 'id');
             $table->string('slug')->unique();
-            $table->string('category');
+            $table->foreignId('category_id')->constrained('category', 'id');
             $table->string('title');
             $table->string('article_image');
             $table->string('article_banner');
@@ -37,6 +37,7 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('categories');
         Schema::dropIfExists('articles');
     }
 }
