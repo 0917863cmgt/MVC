@@ -17,7 +17,8 @@
     <h1>
         {{$article->title}}
     </h1>
-    <p>{{$article->body}}</p>
+    <p class="summary">{{$article->article_summary}}</p>
+    <p>{{$article->article_body}}</p>
 </article>
 
 <a href="/news">Go Back</a>

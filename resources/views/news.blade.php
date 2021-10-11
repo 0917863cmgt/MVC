@@ -10,7 +10,7 @@
             </a>
         </h1>
         <div>
-            {{$article->excerpt}}
+            <p>{{$article->article_summary}}</p>
         </div>
     </article>
 @endforeach
