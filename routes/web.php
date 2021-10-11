@@ -27,10 +27,9 @@ Route::get('/news', function () {
     ]);
 });
 
-Route::get('/news/{article}', function ($slug) {
+Route::get('/news/{article:slug}', function (Article $article) {
     //Find an article by its slug and return a view called "news-article"
-    $article = Article::find($slug);
     return view('news-article', [
         'article' => $article
     ]);
-})->where('article', '[A-z_/-]+');
+});
