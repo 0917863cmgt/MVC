@@ -17,9 +17,7 @@ class CreateHighlightsLikesTable extends Migration
         Schema::create('highlights_likes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('highlight_id')->constrained('highlights','id');
-            $table->foreignId('highlight_author_id')->constrained('highlights','author_id');
-            $table->foreignId('like_user_id')->constrained('users', 'id');
-            $table->string('like_user_name');
+            $table->foreignId('user_id')->constrained('users', 'id');
             $table->timestamps();
         });
     }

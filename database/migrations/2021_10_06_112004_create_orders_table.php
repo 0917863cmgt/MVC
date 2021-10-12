@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('order_number');
+            $table->bigInteger('order_number')->unique();
             $table->foreignId('user_id')->constrained('users', 'id');
             $table->string('costumer_name');
             $table->string('to_street');

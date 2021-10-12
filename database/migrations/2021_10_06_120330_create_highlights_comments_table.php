@@ -16,8 +16,7 @@ class CreateHighlightsCommentsTable extends Migration
         Schema::create('highlights_comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('highlight_id')->constrained('highlights', 'id');
-            $table->foreignId('highlight_author_id')->constrained('highlights', 'author_id');
-            $table->foreignId('comment_user_id')->constrained('users', 'id');
+            $table->foreignId('comment_id')->constrained('highlights_comments', 'id');
             $table->tinyText('comment_message');
             $table->integer('comment_likes_amount')->default(0);
             $table->timestamps();

@@ -16,7 +16,6 @@ class CreateStatisticsTable extends Migration
         Schema::create('statistics', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users', 'id');
-            $table->string('user_full_name');
             $table->tinyInteger('rank')->default(0);
             $table->smallInteger('rank_points')->default(0);
             $table->smallInteger('matches_played')->default(0);

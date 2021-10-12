@@ -19,13 +19,13 @@ class CreateArticlesTable extends Migration
             $table->string('slug')->unique();
             $table->foreignId('category_id')->constrained('categories', 'id');
             $table->string('title');
-            $table->string('article_image');
-            $table->string('article_banner');
-            $table->mediumText('article_summary');
-            $table->longText('article_body');
-            $table->binary('published');
+            $table->string('image');
+            $table->string('banner');
+            $table->mediumText('summary');
+            $table->longText('body');
             $table->binary('highlighted');
-            $table->dateTime('article_publish_date');
+            $table->binary('published');
+            $table->dateTime('publish_date');
             $table->timestamps();
         });
     }
