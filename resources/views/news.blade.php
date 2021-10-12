@@ -11,6 +11,7 @@
             </a>
         </h1>
         <div>
+            <p>By {{$article->author->first_name}} {{$article->author->middle_name}} {{$article->author->insertion}} {{$article->author->last_name}}</p>
             <p>{{$article->article_summary}}</p>
         </div>
     </article>
