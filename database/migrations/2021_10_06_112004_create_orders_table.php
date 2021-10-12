@@ -17,7 +17,10 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->bigInteger('order_number')->unique();
             $table->foreignId('user_id')->constrained('users', 'id');
-            $table->string('costumer_name');
+            $table->string('costumer_first_name');
+            $table->string('costumer_middle_name');
+            $table->string('costumer_prefix');
+            $table->string('costumer_last_name');
             $table->string('to_street');
             $table->string('to_house');
             $table->string('to_city');
