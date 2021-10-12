@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('/news', function () {
     return view('news', [
-        'articles' => Article::with('category')->get()
+        'articles' => Article::with('category', 'author')->get()
     ]);
 });
 
