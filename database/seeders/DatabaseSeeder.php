@@ -26,7 +26,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user1 = User::factory()->create([
+        $category1 = Category::factory()->create([
+            'name' => 'Event',
+            'slug' => 'event'
+        ]);
+
+        $category2 = Category::factory()->create([
+            'name' => 'Verdacht',
+            'slug' => 'verdacht'
+        ]);
+        $user1 = User::factory()->hasArticles(5, ['category_id' => $category1->id])->create([
             'role' => 3,
             'first_name' => 'Barry',
             'middle_name' => '',
@@ -45,7 +54,7 @@ class DatabaseSeeder extends Seeder
             'background_image' => '\Users\1\background_image.jpg',
             'bio' => 'Mensen vinden mij eerst vaak verdacht overkomen en misschien klopt dat wel'
         ]);
-        $user2 = User::factory()->create([
+        $user2 = User::factory()->hasStatistic()->create([
             'role' => 1,
             'first_name' => 'Tarik',
             'middle_name' => 'Kwamina',
@@ -64,7 +73,7 @@ class DatabaseSeeder extends Seeder
             'background_image' => '\Users\2\background_image.jpg',
             'bio' => 'Professionele Tenisser'
         ]);
-        $user3 = User::factory()->create([
+        $user3 = User::factory()->hasArticles(5, ['category_id' => $category2->id])->create([
             'role' => 2,
             'first_name' => 'Bert',
             'middle_name' => 'Derk',
@@ -90,32 +99,23 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user2->id
         ]);
         OrderDetail::factory(10)->create();
-         $category1 = Category::factory()->create([
-             'name' => 'Event',
-             'slug' => 'event'
-         ]);
-
-        $category2 = Category::factory()->create([
-            'name' => 'Verdacht',
-            'slug' => 'verdacht'
-        ]);
-        $category3 = Category::factory()->create([
-            'name' => 'Covid',
-            'slug' => 'covid'
-        ]);
-        Article::factory(5)->create([
-            'user_id' => $user3->id,
-            'category_id' => $category1->id
-        ]);
-        Article::factory(5)->create([
-            'user_id' => $user1->id,
-            'category_id' => $category2->id
-        ]);
-        Article::factory(5)->create([
-            'user_id' => $user3->id,
-            'category_id' => $category3->id
-        ]);
-        Article::factory(5)->create();
+//        $category3 = Category::factory()->create([
+//            'name' => 'Covid',
+//            'slug' => 'covid'
+//        ]);
+//        Article::factory(5)->create([
+//            'user_id' => $user3->id,
+//            'category_id' => $category1->id
+//        ]);
+//        Article::factory(5)->create([
+//            'user_id' => $user1->id,
+//            'category_id' => $category2->id
+//        ]);
+//        Article::factory(5)->create([
+//            'user_id' => $user3->id,
+//            'category_id' => $category3->id
+//        ]);
+        Article::factory(5)->forAuthor()->create();
 
         $highlight1 = Highlight::factory()->create([
             'user_id' => $user2
