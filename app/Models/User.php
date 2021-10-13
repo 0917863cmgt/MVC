@@ -55,9 +55,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    public function statistic(){
+        //hasOne hasMany belongsTo belongsToMany
+        return $this->hasOne(Statistic::class);
+    }
     public function articles(){
         //hasOne hasMany belongsTo belongsToMany
         return $this->hasMany(Article::class);
+    }
+    public function followers(){
+        //hasOne hasMany belongsTo belongsToMany
+        return $this->hasMany(Follower::class);
+    }
+    public function follows(){
+        //hasOne hasMany belongsTo belongsToMany
+        return $this->hasMany(Follow::class);
+    }
+    public function highlights(){
+        //hasOne hasMany belongsTo belongsToMany
+        return $this->hasMany(Highlight::class);
+    }
+    public function orders(){
+        //hasOne hasMany belongsTo belongsToMany
+        return $this->hasMany(Order::class);
     }
 }

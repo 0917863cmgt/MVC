@@ -10,4 +10,10 @@ class Comment extends Model
 {
     use HasFactory;
 
+    public function highlight(){
+        return $this->belongsTo(Highlight::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

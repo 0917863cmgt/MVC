@@ -9,4 +9,11 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class Product extends Model
 {
     use HasFactory;
+
+    public function orderDetails(){
+        return $this->belongsToMany(OrderDetail::class);
+    }
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
