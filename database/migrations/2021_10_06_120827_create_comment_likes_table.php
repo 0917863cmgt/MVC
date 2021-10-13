@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHighlightsCommentLikesTable extends Migration
+class CreateCommentLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateHighlightsCommentLikesTable extends Migration
      */
     public function up()
     {
-        Schema::create('highlights_comment_likes', function (Blueprint $table) {
+        Schema::create('comment_likes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('highlight_id')->constrained('highlights', 'id');
-            $table->foreignId('comment_id')->constrained('highlights_comments', 'id');
+            $table->foreignId('comment_id')->constrained('comments', 'id');
             $table->foreignId('user_id')->constrained('users', 'id');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateHighlightsCommentLikesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('highlights_comment_likes');
+        Schema::dropIfExists('comment_likes');
     }
 }

@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHighlightsLikesTable extends Migration
+class CreateLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateHighlightsLikesTable extends Migration
      */
     public function up()
     {
-        Schema::create('highlights_likes', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('highlight_id')->constrained('highlights','id');
             $table->foreignId('user_id')->constrained('users', 'id');
@@ -29,6 +29,6 @@ class CreateHighlightsLikesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('highlights_likes');
+        Schema::dropIfExists('likes');
     }
 }
