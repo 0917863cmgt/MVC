@@ -27,13 +27,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $category1 = Category::factory()->create([
-            'name' => 'Event',
-            'slug' => 'event'
-        ]);
-
-        $category2 = Category::factory()->create([
             'name' => 'Verdacht',
             'slug' => 'verdacht'
+        ]);
+        $category2 = Category::factory()->create([
+            'name' => 'Event',
+            'slug' => 'event'
         ]);
         $user1 = User::factory()->hasArticles(5, ['category_id' => $category1->id])->create([
             'role' => 3,

@@ -27,7 +27,7 @@ class ArticleFactory extends Factory
             'user_id' => User::factory(),
             'category_id' => Category::factory(),
             'slug' => $this->faker->slug(),
-            'title' => $this->faker->title(),
+            'title' => $this->faker->realTextBetween(30,60),
             'image' => $this->faker->imageUrl,
             'banner' => $this->faker->imageUrl,
             'summary' => $this->faker->realTextBetween(300, 800),
