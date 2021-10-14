@@ -31,7 +31,7 @@ class ArticleFactory extends Factory
             'image' => $this->faker->imageUrl,
             'banner' => $this->faker->imageUrl,
             'summary' => $this->faker->realTextBetween(300, 800),
-            'body' => $this->faker->paragraph,
+            'body' => $this->faker->realTextBetween(800, 1600),
             'highlighted' => $this->faker->randomElement([0,1]),
             'published' => $this->faker->randomElement([0,1]),
             'publish_date' => $this->faker->date
