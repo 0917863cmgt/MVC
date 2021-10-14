@@ -25,7 +25,7 @@
             <div class="col-10 offset-1">
                 <h2>Nieuws</h2>
                 <x-article-featured-card :article="$articles[0]"/>
-                <div class="row gx-2 justify-content-center">
+                <div class="row gx-3 justify-content-center">
                     @foreach( $articles->skip(1) as $article)
                         @if($article->highlighted == 1 && $article->category->name != "Event")
                             <x-article-card :article="$article"/>
@@ -40,7 +40,7 @@
             <div class="col-10 offset-1">
                 <h2>Events</h2>
                 <x-article-featured-card :article="$articles[0]"/>
-                <div class="row gx-2 justify-content-center">
+                <div class="row gx-3 justify-content-center">
                     @foreach( $articles->skip(1) as $article)
                         @if($article->highlighted == 1 && $article->category->name == "Event")
                             <x-article-card :article="$article"/>
@@ -51,7 +51,7 @@
         </div>
     </section>
     <section id="homepage-sponsors">
-        <h2>Sponsors</h2>
+        <h2>Sponsors slider</h2>
     </section>
     </body>
 @endsection

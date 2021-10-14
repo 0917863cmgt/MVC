@@ -2,6 +2,9 @@
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Highlight;
+use App\Models\Product;
+use App\Models\Statistic;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\File;
@@ -42,5 +45,21 @@ Route::get('/news/category/{category:slug}', function (Category $category) {
     //Find an article by its category slug and return a view called "news-article"
     return view('news', [
         'articles' => $category->articles
+    ]);
+});
+
+Route::get('/statistics', function () {
+    return view('statistics', [
+        'statistics' => Statistic::with('player')->get()
+    ]);
+});
+Route::get('/highlights', function () {
+    return view('highlights', [
+        'highlights' => Highlight::with('user')->get()
+    ]);
+});
+Route::get('/shop', function () {
+    return view('shop', [
+        'products' => Product::with('category')->get()
     ]);
 });
