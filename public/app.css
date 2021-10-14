@@ -2,7 +2,100 @@ body{
     background-color: white;
     font-family: 'Nunito', sans-serif;
 }
+#tennis-club-logo {
+    margin-right: auto!important;
+    font-size: 20px;
+    width: auto!important;
+}
+#tennis-club-logo li {
+    width: auto!important;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#navigation-bar{
+    position: relative;
+    width: auto;
+    height:100px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    background-color: #293133;
+    justify-content: flex-end;
+    max-width: 100%;
+}
+#navigation-bar li{
+    position: relative;
+    height: inherit;
+    width: 100px;
+    margin: 0;
+    color: white;
+    text-align: center;
+    align-self: center;
+    line-height: 100px;
+    font-weight: bold;
+}
+#navigation-bar a{
+    text-decoration: none;
+    color:black;
+}
+#navigation-bar a:hover li{
+    text-decoration: none;
+    color:black;
+    background-color: white;
+}
+#navigation-bar li:active {
+    border: #293133;
+}
+#footer {
+    background-color: #293133;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    height: fit-content;
+    color: white;
+}
+.footer-h3{
+    text-decoration: underline green;
+}
+input#footer-submit{
+    text-transform: uppercase;
+    background-color: green;
+    font-family: 'Roboto', sans-serif;
+    border: green 5px solid;
+    margin-top: 15px;
+    color: white;
+}
+input#footer-email{
+    width: 100%;
+    background-color: transparent;
+    border: grey solid 1px;
+    border-radius: 3px;
+}
+.white{
+    background-color: white;
+}
+#homepage{
+    margin:0;
+    min-height: 100vh;
+}
+#homepage section{
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid black;
+}
+#homepage h2{
+    text-align: center;
+}
+#homepage-slider{
+    height: 50vh;
+}
+#homepage-intro{
 
+}
 #news{
     max-width:600px;
     margin:auto;
