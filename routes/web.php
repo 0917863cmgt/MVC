@@ -2,6 +2,7 @@
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\File;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
@@ -19,7 +20,9 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 */
 
 Route::get('/', function () {
-    return view('homepage');
+    return view('homepage', [
+        'articles' => Article::with('category', 'author')->get()]
+    );
 });
 
 Route::get('/news', function () {
