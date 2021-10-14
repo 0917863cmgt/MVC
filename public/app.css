@@ -78,6 +78,9 @@ input#footer-email{
 .white{
     background-color: white;
 }
+.black{
+    background-color: black;
+}
 #homepage{
     margin:0;
     min-height: 100vh;
@@ -93,18 +96,53 @@ input#footer-email{
 #homepage-slider{
     height: 50vh;
 }
+#homepage-sponsors{
+    height: 50vh;
+}
 #homepage-intro{
 
 }
-#news{
-    max-width:600px;
-    margin:auto;
+#featured-article{
+    margin-top: 3rem;
+    margin-bottom: 1em;
 }
-
+#featured-image{
+    width: -webkit-fill-available;
+}
+.category{
+    text-decoration: none;
+    border-radius: 20px;
+    border: 2px orange solid;
+    padding: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: small;
+    color: orange;
+}
+.read-more{
+    background-color: #EEEEEE;
+    text-decoration: none;
+    border-radius: 20px;
+    border: 2px #EEEEEE solid;
+    padding: 5px 20px 5px 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: small;
+    color: black;
+}
+.read-more:hover{
+    background-color: #E0E0E0;
+}
+#news{
+    margin:0;
+}
+#news-container{
+    margin-top: 3rem;
+}
 p{
     line-height: 1.6;
 }
-article + article {
+#news div.row + div.row {
     margin-top: 3rem;
     padding-top: 3rem;
     border-top: 1px solid black;

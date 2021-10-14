@@ -4,7 +4,7 @@
     <div id="homepage-slider">
         <h2>Photo Slider</h2>
     </div>
-    <section id="homepage-intro" class="container">
+    <section id="homepage-intro" class="container-fluid">
         <div class="row">
             <div class="col-6 offset-3">
                 <h2>Introductie Section</h2>
@@ -20,18 +20,38 @@
             </div>
         </div>
     </section>
-    <section id="homepage-articles" class="container">
+    <section id="homepage-articles" class="container-fluid">
         <div class="row">
-            <div class="col-6 offset-3">
-                <h2>Nieuws Section</h2>
+            <div class="col-10 offset-1">
+                <h2>Nieuws</h2>
+                <x-article-featured-card :article="$articles[0]"/>
+                <div class="row gx-2 justify-content-center">
+                    @foreach( $articles->skip(1) as $article)
+                        @if($article->highlighted == 1 && $article->category->name != "Event")
+                            <x-article-card :article="$article"/>
+                        @endif
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
-    <section id="homepage-events">
-        <h2>Events Section</h2>
+    <section id="homepage-events" class="container-fluid">
+        <div class="row">
+            <div class="col-10 offset-1">
+                <h2>Events</h2>
+                <x-article-featured-card :article="$articles[0]"/>
+                <div class="row gx-2 justify-content-center">
+                    @foreach( $articles->skip(1) as $article)
+                        @if($article->highlighted == 1 && $article->category->name == "Event")
+                            <x-article-card :article="$article"/>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        </div>
     </section>
     <section id="homepage-sponsors">
-        <h2>Sponsors Section</h2>
+        <h2>Sponsors</h2>
     </section>
     </body>
 @endsection
