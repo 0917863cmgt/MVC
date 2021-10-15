@@ -16,6 +16,7 @@ class CreateHighlightsTable extends Migration
         Schema::create('highlights', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users', 'id');
+            $table->string('slug');
             $table->string('media');
             $table->string('title');
             $table->text('caption');
