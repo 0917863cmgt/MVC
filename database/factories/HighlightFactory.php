@@ -26,6 +26,7 @@ class HighlightFactory extends Factory
             'user_id' => User::factory()->create([
                 'role' => 1
             ]),
+            'slug' => $this->faker->slug,
             'media' => $this->faker->imageUrl,
             'title' => $this->faker->title,
             'caption' => $this->faker->realTextBetween(100, 400)
