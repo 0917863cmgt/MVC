@@ -81,6 +81,15 @@ input#footer-email{
 .black{
     background-color: black;
 }
+.grey{
+    background-color: #EEEEEE;
+}
+.grey-light{
+    background-color: #E0E0E0;
+}
+body#highlights\ transparent{
+    background-color: rgba(0,0,0,.5)!important;
+}
 #homepage{
     margin:0;
     min-height: 100vh;
@@ -96,8 +105,23 @@ input#footer-email{
 #homepage-slider{
     height: 50vh;
 }
+div#carouselExampleDark {
+    height: inherit;
+}
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: inherit;
+}
+.carousel-item{
+    height: inherit;
+}
+.carousel-item:active{
+    height: inherit;
+}
 #homepage-sponsors{
-    height: 50vh;
+    min-height: 50vh;
 }
 #homepage-intro{
 
@@ -187,6 +211,26 @@ article .body {
     margin-top: 10vh;
     margin-bottom: 10vh;
     min-height: 50vh;
+}
+.highlight-block{
+    height: 300px;
+    width: 300px;
+}
+.highlight-block{
+    height: 300px;
+    width: 300px;
+}
+.highlight-block-selected{
+    height: 600px;
+    width: 600px;
+}
+.highlight-selected-profile-image{
+    height: 32px;
+    width: 32px;
+    background-size: contain;
+    vertical-align: text-bottom;
+    border-radius: 50%;
+    margin-left: calc(var(--bs-gutter-x) * .25);
 }
 #shop-section{
     margin-top: 10vh;
