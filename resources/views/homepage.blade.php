@@ -3,6 +3,7 @@
     <body id="homepage">
     <div id="homepage-slider">
         <h2>Photo Slider</h2>
+        <x-carousel id="carouselExampleDark" data-bs-target="#carouselExampleDark"/>
     </div>
     <section id="homepage-intro" class="container-fluid">
         <div class="row">
@@ -51,7 +52,8 @@
         </div>
     </section>
     <section id="homepage-sponsors">
-        <h2>Sponsors slider</h2>
+        <h2>Sponsors</h2>
+        <x-carousel id="carouselExampleDark2" data-bs-target="#carouselExampleDark2"/>
     </section>
     </body>
 @endsection
