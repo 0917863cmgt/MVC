@@ -58,6 +58,12 @@ Route::get('/highlights', function () {
         'highlights' => Highlight::with('user')->get()
     ]);
 });
+Route::get('/highlights/h/{highlight:slug}', function (Highlight $highlight) {
+    return view('highlight-selected', [
+        'highlights' => Highlight::with('user')->get(),
+        'selected' => $highlight
+    ]);
+});
 Route::get('/shop', function () {
     return view('shop', [
         'products' => Product::with('category')->get()
