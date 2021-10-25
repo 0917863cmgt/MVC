@@ -2,6 +2,7 @@
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Highlight;
 use App\Models\Product;
 use App\Models\Statistic;
@@ -55,13 +56,14 @@ Route::get('/statistics', function () {
 });
 Route::get('/highlights', function () {
     return view('highlights', [
-        'highlights' => Highlight::with('user')->get()
+        'highlights' => Highlight::without('comments')->get()
     ]);
 });
-Route::get('/highlights/h/{highlight:slug}', function (Highlight $highlight) {
+Route::get('/highlights/s/{highlight:slug}', function (Highlight $highlight) {
     return view('highlight-selected', [
-        'highlights' => Highlight::with('user')->get(),
-        'selected' => $highlight
+        'highlights' => Highlight::without('comments')->get(),
+        'selected' => Highlight::where('id', $highlight->id)->first(),
+        'comments' => Comment::where('highlight_id',$highlight->id)->get()
     ]);
 });
 Route::get('/shop', function () {
