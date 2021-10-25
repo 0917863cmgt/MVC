@@ -16,7 +16,7 @@
 </head>
 <body>
 <header>
-    <nav>
+    <nav id="navigation-top">
         <ul id="navigation-bar" class="container">
             <a id="tennis-club-logo" href="/"><li>Tennis Club</li></a>
             <a href="/news"><li>Nieuws</li></a>
