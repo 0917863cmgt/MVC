@@ -10,10 +10,15 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $with=['user','commentlikes'];
+
     public function highlight(){
         return $this->belongsTo(Highlight::class);
     }
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function commentlikes(){
+        return $this->hasMany(CommentLike::class);
     }
 }

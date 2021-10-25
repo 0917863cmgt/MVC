@@ -10,6 +10,8 @@ class CommentLike extends Model
 {
     use HasFactory;
 
+    protected $with = ['user'];
+
     public function comment(){
         return $this->belongsTo(Comment::class);
     }
