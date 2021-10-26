@@ -2,6 +2,9 @@ body{
     background-color: white;
     font-family: 'Nunito', sans-serif;
 }
+header{
+    height: 100px;
+}
 #tennis-club-logo {
     margin-right: auto!important;
     font-size: 20px;
@@ -92,8 +95,9 @@ input#footer-email{
 .grey-light{
     background-color: #E0E0E0;
 }
-body#highlights\ transparent{
+body#highlights-selected\ transparent{
     background-color: rgba(0,0,0,.5)!important;
+    overflow-y: hidden;
 }
 #homepage{
     margin:0;
@@ -213,9 +217,9 @@ article .body {
     background-color: #EEEEEE;
 }
 #highlights-section{
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-    min-height: 50vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    min-height: 90vh;
 }
 .highlight-block{
     height: 300px;
@@ -224,13 +228,57 @@ article .body {
 .highlight-block{
     height: 300px;
     width: 300px;
+}
+.highlight-selected-close{
+    position: fixed;
+    top: 120px;
+    right: 10px;
+    margin: auto;
+}
+.highlight-selected{
+    background-color: rgba(0,0,0,.5);
+    background-color: rgba(var(--jb7,0,0,0),.5);
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    position: fixed;
+    z-index: 1;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    border: 0 solid #000;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    margin: auto;
+    right: 0;
+    left: 0;
 }
 .highlight-block-selected{
     height: 600px;
     width: 600px;
 }
-.highlight-selected-header-section{
+.highlight-comment-section{
     background-color: #fafafa;
+    font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
 }
 .highlight-selected-header-row{
     max-height: 60px;
@@ -282,6 +330,13 @@ article .body {
     padding: 16px;
     scrollbar-width: none;
     list-style: none;
+}
+.comment-profile-name{
+    display: inline-block;
+    flex-shrink: 1;
+}
+.comment-svg-options{
+    display: inline-block;
 }
 .selected-highlight-buttons-row{
     max-height: 55px;
@@ -342,6 +397,10 @@ article .body {
     text-decoration: none;
     vertical-align: baseline;
 }
+.date-section-time {
+    font-size: 10px;
+    letter-spacing: .2px;
+}
 .comment-form-row{
     max-height: 70px;
     border-top: 1px solid #efefef;
@@ -386,7 +445,9 @@ article .body {
     padding: 0;
     position: relative;
 }
-
+.like-comment-hidden{
+    display: none;
+}
 #shop-section{
     margin-top: 10vh;
     margin-bottom: 10vh;
