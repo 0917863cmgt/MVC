@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <body id="highlights transparent">
+    <body id="highlights-selected transparent">
     <section id="highlights-section" class="container-fluid">
         <div class="row">
             <div class="col-8 offset-2">
@@ -14,12 +14,23 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-8 offset-2">
+            <div class="col-8 offset-2 highlight-selected">
+                <div class="highlight-selected-close">
+                    <a href="/highlights">
+                        <button class="highlight-svg-button" type="button">
+                            <div class="close-highlight-svg">
+                                <svg aria-label="Close" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 48 48" width="24">
+                                    <path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </a>
+                </div>
                 <div class="row">
                     <div class="col p-0">
                         <img class="highlight-block-selected" src="{{$selected->media}}">
                     </div>
-                    <div class="col highlight-selected-header-section">
+                    <div class="col highlight-comment-section">
                         {{--Header section--}}
                         <div class="row highlight-selected-header-row">
                             <div class="col-10 highlight-selected-header-container">
@@ -35,12 +46,12 @@
                             <div class="col highlight-selected-comment-column">
                                 <ul class="highlight-selected-comment-ul">
                                     @foreach($selected->comments as $comment)
-                                        <x-highlight-selected-comment :comment="$comment"/>
+                                        <x-highlight-selected-comment :selected="$selected" :comment="$comment"/>
                                     @endforeach
                                 </ul>
                             </div>
                         </div>
-{{--                    {{--Likes and other svg buttons--}}
+                        {{--                    {{--Likes and other svg buttons--}}
                         <div class="row selected-highlight-buttons-row">
                             <div class="col selected-highlight-buttons-col">
                                 <span>
@@ -108,7 +119,7 @@
                         {{--Likes amount section--}}
                         <div class="row likes-amount-section">
                             <div class="col likes-amount-column">
-                                <span class="likes-amount" role="button" tabindex="0"><span>{{$selected->likes_amount}}</span> likes</span>
+                                <span class="likes-amount" role="button" tabindex="0"><span>{{$selected->likes->count()}}</span> likes</span>
                             </div>
                         </div>
                         {{--Date section--}}

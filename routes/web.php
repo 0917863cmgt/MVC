@@ -56,12 +56,12 @@ Route::get('/statistics', function () {
 });
 Route::get('/highlights', function () {
     return view('highlights', [
-        'highlights' => Highlight::without('comments')->get()
+        'highlights' => Highlight::without('comments', 'likes')->get()
     ]);
 });
 Route::get('/highlights/s/{highlight:slug}', function (Highlight $highlight) {
     return view('highlight-selected', [
-        'highlights' => Highlight::without('comments')->get(),
+        'highlights' => Highlight::without('comments', 'likes')->get(),
         'selected' => Highlight::where('id', $highlight->id)->first(),
         'comments' => Comment::where('highlight_id',$highlight->id)->get()
     ]);

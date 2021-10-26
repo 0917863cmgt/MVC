@@ -7,7 +7,7 @@
                 <div class="row g-3 row-cols-3">
                     @foreach($highlights as $highlight)
                         <div class="col">
-                            <a href="/highlights/h/{{$highlight->slug}}">
+                            <a href="/highlights/s/{{$highlight->slug}}">
                                 <img class="highlight-block" src="{{$highlight->media}}">
                             </a>
                         </div>
