@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
@@ -28,12 +29,7 @@ Route::get('/', function () {
         'articles' => Article::with('category', 'author')->get()]
     );
 });
-
-Route::get('/news', function () {
-    return view('news', [
-        'articles' => Article::with('category', 'author')->get()
-    ]);
-});
+Route::get('/news', [ArticleController::class, 'index']);
 
 Route::get('/news/{article:slug}', function (Article $article) {
     //Find an article by its slug and return a view called "news-article"
@@ -42,12 +38,14 @@ Route::get('/news/{article:slug}', function (Article $article) {
     ]);
 });
 
-Route::get('/news/category/{category:slug}', function (Category $category) {
-    //Find an article by its category slug and return a view called "news-article"
-    return view('news', [
-        'articles' => $category->articles
-    ]);
-});
+//Route::get('/news/category/{category:slug}', function (Category $category) {
+//    //Find an article by its category slug and return a view called "news-article"
+//    return view('news', [
+//        'articles' => $category->articles,
+//        'categories' => Category::all(),
+//        'category' => $category
+//    ]);
+//});
 
 Route::get('/statistics', function () {
     return view('statistics', [
