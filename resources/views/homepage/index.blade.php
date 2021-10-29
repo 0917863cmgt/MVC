@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('components.layout')
 @section('content')
     <body id="homepage">
     <div id="homepage-slider">

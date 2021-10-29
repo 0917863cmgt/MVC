@@ -9,13 +9,13 @@ use App\Models\Article;
 class ArticleController extends Controller
 {
     public function index() {
-        return view('news', [
+        return view('articles.index', [
             'articles' => Article::latest()->filter(request(['search', 'category']))->get(),
         ]);
     }
 
     public function show(Article $article){
-        return view('news-article', [
+        return view('articles.show', [
             'article' => $article
         ]);
     }

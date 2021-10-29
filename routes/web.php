@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HighlightController;
+use App\Http\Controllers\HomepageController;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
@@ -23,47 +25,20 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [HomepageController::class, 'index']);
 
-Route::get('/', function () {
-    return view('homepage', [
-        'articles' => Article::with('category', 'author')->get()]
-    );
-});
 Route::get('/news', [ArticleController::class, 'index']);
-
-Route::get('/news/{article:slug}', function (Article $article) {
-    //Find an article by its slug and return a view called "news-article"
-    return view('news-article', [
-        'article' => $article
-    ]);
-});
-
-//Route::get('/news/category/{category:slug}', function (Category $category) {
-//    //Find an article by its category slug and return a view called "news-article"
-//    return view('news', [
-//        'articles' => $category->articles,
-//        'categories' => Category::all(),
-//        'category' => $category
-//    ]);
-//});
+Route::get('/news/{article:slug}', [ArticleController::class, 'show']);
 
 Route::get('/statistics', function () {
     return view('statistics', [
         'statistics' => Statistic::with('player')->get()
     ]);
 });
-Route::get('/highlights', function () {
-    return view('highlights', [
-        'highlights' => Highlight::without('comments', 'likes')->get()
-    ]);
-});
-Route::get('/highlights/s/{highlight:slug}', function (Highlight $highlight) {
-    return view('highlight-selected', [
-        'highlights' => Highlight::without('comments', 'likes')->get(),
-        'selected' => Highlight::where('id', $highlight->id)->first(),
-        'comments' => Comment::where('highlight_id',$highlight->id)->get()
-    ]);
-});
+
+Route::get('/highlights', [HighlightController::class, 'index']);
+Route::get('/highlights/s/{highlight:slug}', [HighlightController::class, 'select']);
+
 Route::get('/shop', function () {
     return view('shop', [
         'products' => Product::with('category')->get()

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('components.layout')
 @section('content')
     <body id="highlights-selected transparent">
     <section id="highlights-section" class="container-fluid">

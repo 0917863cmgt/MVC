@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('components.layout')
 @section('content')
     <body id="statistics">
         <section id="statistics-section" class="container-fluid">
