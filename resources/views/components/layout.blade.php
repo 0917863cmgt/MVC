@@ -24,6 +24,8 @@
             @auth
             <a href="/highlights"><li>Highlights</li></a>
             <a href="/statistics"><li>Statistieken</li></a>
+            <a href="/u/{{auth()->user()->id}}"><li style="font-size:x-small;word-wrap: anywhere">Welcome {{auth()->user()->first_name}}!</li></a>
+            <a href="/logout"><li>Log out</li></a>
             @endauth
             @guest
             <a href="/login"><li>Log in</li></a>
