@@ -8,6 +8,8 @@ use App\Http\Controllers\SessionController;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Follow;
+use App\Models\Follower;
 use App\Models\Highlight;
 use App\Models\Product;
 use App\Models\Statistic;
@@ -49,7 +51,11 @@ Route::get('/shop', function () {
 
 Route::get('/u/{user:id}', function (User $user) {
     return view('user', [
-        'user' => $user
+        'user' => $user,
+        'highlights' => Highlight::where('user_id', $user->id)->paginate(3),
+        'statistic' => Statistic::where('user_id', $user->id)->get()->first(),
+        'followers' => Follower::where('user_id', $user->id)->get(),
+        'follows' => Follow::where('user_id', $user->id)->get(),
     ]);
 });
 
