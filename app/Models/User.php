@@ -21,7 +21,7 @@ class User extends Authenticatable
         'role',
         'first_name',
         'middle_name',
-        'insertion',
+        'prefix',
         'last_name',
         'email',
         'password',
@@ -30,6 +30,7 @@ class User extends Authenticatable
         'street_name',
         'house_number_and_extension',
         'postal_code',
+        'city',
         'country',
         'phone_number',
         'profile_image',
@@ -55,6 +56,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function setPasswordAttribute($password){
+        $this->attributes['password'] = bcrypt($password);
+    }
+    public function setBirthdateAttribute($birthdate){
+        $this->attributes['birthdate'] = date('Y-m-d',strtotime($birthdate));
+    }
     public function statistic(){
         //hasOne hasMany belongsTo belongsToMany
         return $this->hasOne(Statistic::class);
