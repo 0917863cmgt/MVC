@@ -47,3 +47,4 @@ Route::get('/shop', function () {
 });
 
 Route::get('/register', [RegisterController::class, 'create']);
+Route::post('/register', [RegisterController::class, 'store']);
