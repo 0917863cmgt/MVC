@@ -37,8 +37,8 @@ Route::get('/statistics', function () {
     ]);
 });
 
-Route::get('/highlights', [HighlightController::class, 'index']);
-Route::get('/highlights/s/{highlight:slug}', [HighlightController::class, 'select']);
+Route::get('/highlights', [HighlightController::class, 'index'])->middleware('auth');
+Route::get('/highlights/s/{highlight:slug}', [HighlightController::class, 'select'])->middleware('auth');
 
 Route::get('/shop', function () {
     return view('shop', [
@@ -46,5 +46,5 @@ Route::get('/shop', function () {
     ]);
 });
 
-Route::get('/register', [RegisterController::class, 'create']);
-Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
