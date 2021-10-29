@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HighlightController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionController;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
@@ -46,5 +47,16 @@ Route::get('/shop', function () {
     ]);
 });
 
+Route::get('/u/{user:id}', function (User $user) {
+    return view('user', [
+        'user' => $user
+    ]);
+});
+
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+
+Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+
+Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
+Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
