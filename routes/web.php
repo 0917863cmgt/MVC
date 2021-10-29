@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HighlightController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
@@ -44,3 +45,5 @@ Route::get('/shop', function () {
         'products' => Product::with('category')->get()
     ]);
 });
+
+Route::get('/register', [RegisterController::class, 'create']);
