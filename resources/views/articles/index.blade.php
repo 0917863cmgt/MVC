@@ -13,7 +13,7 @@
         </div>
         {{--        @dd($loop)--}}
     @endforeach
-    {{$articles->links()}}
+    <x-articles-pagination :articles="$articles"/>
     @if($articles->count() <1)
         <div class="col-6 offset-3 no-articles" style="height: calc(40vh - 150px);">
             <p style="text-align: center;">No articles found</p>

@@ -172,6 +172,9 @@ div#carouselExampleDark {
 #news{
     margin:0;
 }
+#news #news-container nav.l-b-navigation{
+    float: right;
+}
 .news-header{
     margin-top: 10px;
     margin-bottom: 1em;
