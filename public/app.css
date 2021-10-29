@@ -544,7 +544,6 @@ article .body {
     margin-bottom: 10vh;
     min-height: 50vh;
 }
-
 #register-section{
     margin-top: 10vh;
     margin-bottom: 10vh;
@@ -621,6 +620,61 @@ input[type="file"].register-input-file:hover::-webkit-file-upload-button {
     border-color: green;
     color: green;
 }
+#login-section{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    min-height: 50vh;
+}
+.login-header{
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+.login-form input+label {
+    margin-top: 1em;
+}
+.login-form select+label {
+    margin-top: 1em;
+}
+.login-input-text{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #8e8e8e solid;
+}
+.login-input-email{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #8e8e8e solid;
+}
+.login-input-password{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #8e8e8e solid;
+}
+.login-input-submit {
+    margin-top: 1em;
+    align-self: center;
+    width: 130px;
+    appearance: none;
+    background: white;
+    cursor: pointer;
+    text-decoration: none;
+    vertical-align: super;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #8e8e8e solid;
+}
+.login-input-submit:hover {
+    border-color: green;
+    color: green;
+}
 .flash-message{
     width: fit-content;
     min-width: 100px;
@@ -665,4 +719,9 @@ input[type="file"].register-input-file:hover::-webkit-file-upload-button {
         border: 0 transparent none;
         display: none;
     }
+}
+#user-section{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    min-height: 50vh;
 }
