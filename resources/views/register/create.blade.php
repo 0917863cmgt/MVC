@@ -16,7 +16,8 @@
                 </div>
                 <div class="col p-5 grey" style="border-radius:20px">
                     <form class="register-form" id="register-create" method="POST" action="/register">
-                        <input type="hidden" name="role" id="role" required>
+                        @csrf
+                        <input type="hidden" name="role" id="role" value="1" required>
 
                         <label class="register-label" for="first_name">Voornaam</label>
                         <input class="register-input-text" type="text" name="first_name" id="first_name" required>
@@ -34,13 +35,13 @@
                         <input class="register-input-email" type="email" name="email" id="email" required>
 
                         <label class="register-label" for="confirm_email">Bevestig E-mail</label>
-                        <input class="register-input-email" type="email" name="confirm_email" id="confirm_email" required>
+                        <input class="register-input-email" type="email" name="email_confirmation" id="email_confirmation" required>
 
                         <label class="register-label" for="password">Wachtwoord</label>
                         <input class="register-input-password" type="password" name="password" id="password" required>
 
                         <label class="register-label" for="confirm_password">Bevestig wachtwoord</label>
-                        <input class="register-input-password" type="password" name="confirm_password" id="confirm_password" required>
+                        <input class="register-input-password" type="password" name="password_confirmation" id="password_confirmation" required>
 
                         <label class="register-label" for="gender">Geslacht</label>
                         <select class="register-select-gender" name="gender" id="gender" required>
@@ -64,19 +65,31 @@
                         <label class="register-label" for="city">Stad</label>
                         <input class="register-input-text" type="text" name="city" id="city" required>
 
+                        <label class="register-label" for="country">Land</label>
+                        <input class="register-input-text" type="text" name="country" id="country" required>
+
                         <label class="register-label" for="phone_number">Telefoonnummer</label>
                         <input class="register-input-text" type="text" name="phone_number" id="phone_number" required>
 
                         <label class="register-label" for="profile_image">Profiel foto</label>
-                        <input class="register-input-file" type="file" name="profile_image" id="profile_image" required>
+                        <input class="register-input-file" type="file" name="profile_image" id="profile_image" >
 
                         <label class="register-label" for="background_image">Achtergrond foto</label>
-                        <input class="register-input-file" type="file" name="background_image" id="background_image" required>
+                        <input class="register-input-file" type="file" name="background_image" id="background_image" >
 
                         <label class="register-label" for="bio">Bio</label>
-                        <input class="register-input-text" type="text" name="bio" id="bio" required>
+                        <input class="register-input-text" type="text" name="bio" id="bio" >
 
                         <input class="register-input-submit" type="submit" name="submit" id="submit" value="Registreer">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </form>
                 </div>
                 <div class="col">
