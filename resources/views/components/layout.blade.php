@@ -28,6 +28,9 @@
         </ul>
     </nav>
 </header>
+@if(session()->has('succes'))
+    <p id="hideMe" class="flash-message">{{session('succes') ?? 'Geen succes flash message in session gevonden'}}</p>
+@endif
 @yield('content')
 <footer id="footer" class="row">
     <div class="container-fluid px-5">

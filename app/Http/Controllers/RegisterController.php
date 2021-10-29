@@ -33,7 +33,10 @@ class RegisterController extends Controller
             'background_image' => 'nullable|file|size:20000',
             'bio' => 'nullable|string|min:0|max:255'
         ]);
-        User::create($attributes);
-        return redirect('/');
+        $user = User::create($attributes);
+
+        auth()->login($user);
+
+        return redirect('/')->with('succes', 'Uw account is succesvol aangemaakt!');
     }
 }

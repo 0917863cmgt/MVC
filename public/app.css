@@ -621,3 +621,48 @@ input[type="file"].register-input-file:hover::-webkit-file-upload-button {
     border-color: green;
     color: green;
 }
+.flash-message{
+    width: fit-content;
+    min-width: 100px;
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#hideMe {
+    -moz-animation: cssAnimation 2s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 2s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 2s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 2s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+    to {
+        background-color: transparent;
+        overflow:hidden;
+        visibility:hidden;
+        border: 0 transparent none;
+        display: none;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        background-color: transparent;
+        overflow:hidden;
+        visibility:hidden;
+        border: 0 transparent none;
+        display: none;
+    }
+}
