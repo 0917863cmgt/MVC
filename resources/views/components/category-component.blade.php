@@ -4,7 +4,7 @@
             <ul aria-label="submenu">
                 @foreach($categories as $category)
                     <li>
-                        <a class="n-t-d" href="/news/?category={{$category->slug}}">{{$category->name}}</a>
+                        <a class="n-t-d" href="/news/?category={{$category->slug}}&{{http_build_query(request()->except('category', 'page'))}}">{{$category->name}}</a>
                     </li>
                 @endforeach
             </ul>
