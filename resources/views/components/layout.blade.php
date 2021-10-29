@@ -21,10 +21,14 @@
             <a id="tennis-club-logo" href="/"><li>Tennis Club</li></a>
             <a href="/news"><li>Nieuws</li></a>
             <a href="/shop"><li>Winkel</li></a>
+            @auth
             <a href="/highlights"><li>Highlights</li></a>
             <a href="/statistics"><li>Statistieken</li></a>
+            @endauth
+            @guest
             <a href="/login"><li>Log in</li></a>
             <a href="/register"><li>Registreer</li></a>
+            @endguest
         </ul>
     </nav>
 </header>
