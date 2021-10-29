@@ -544,3 +544,80 @@ article .body {
     margin-bottom: 10vh;
     min-height: 50vh;
 }
+
+#register-section{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    min-height: 50vh;
+}
+.register-header{
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+.register-form{
+    display: flex;
+    flex-direction: column;
+}
+.register-form input+label {
+    margin-top: 1em;
+}
+.register-form select+label {
+    margin-top: 1em;
+}
+.register-select-gender {
+    align-self: flex-start;
+    width: 100px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #8e8e8e solid;
+}
+.register-input-text{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #8e8e8e solid;
+}
+.register-input-email{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #8e8e8e solid;
+}
+.register-input-password{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #8e8e8e solid;
+}
+input[type="file"].register-input-file::-webkit-file-upload-button {
+    appearance: none;
+    cursor: pointer;
+    background-color: white;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #8e8e8e solid;
+}
+input[type="file"].register-input-file:hover::-webkit-file-upload-button {
+    border-color: #FFF900;
+}
+.register-input-submit {
+    margin-top: 1em;
+    align-self: center;
+    width: 130px;
+    appearance: none;
+    background: white;
+    cursor: pointer;
+    text-decoration: none;
+    vertical-align: super;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #8e8e8e solid;
+}
+.register-input-submit:hover {
+    border-color: green;
+    color: green;
+}
