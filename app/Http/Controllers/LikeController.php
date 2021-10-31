@@ -16,6 +16,11 @@ class LikeController extends Controller
 
         $like = Like::create($attributes);
 
-        return redirect('/highlights/s/'.$highlight->slug)->with('succes', 'Uw like is succesvol geplaatst!');
+        return redirect()->back()->with('succes', 'Uw like is succesvol geplaatst!');
+    }
+
+    public function destroy(Highlight $highlight, Like $like){
+        Like::destroy($like->id);
+        return redirect()->back()->with('succes', 'Uw like is succesvol verwijderd!');
     }
 }
