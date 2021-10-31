@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Statistic;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -34,6 +35,10 @@ class RegisterController extends Controller
             'bio' => 'nullable|string|min:0|max:255'
         ]);
         $user = User::create($attributes);
+
+        Statistic::create([
+            'user_id' => $user->id
+        ]);
 
         auth()->login($user);
 
