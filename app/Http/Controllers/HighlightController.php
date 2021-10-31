@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\CommentLike;
 use App\Models\Highlight;
+use App\Models\Like;
 use Illuminate\Http\Request;
 
 class HighlightController extends Controller
@@ -18,7 +20,10 @@ class HighlightController extends Controller
         return view('highlights.show', [
             'highlights' => Highlight::without('comments', 'likes')->get(),
             'selected' => Highlight::where('id', $highlight->id)->first(),
-            'comments' => Comment::where('highlight_id',$highlight->id)->get()
+            'comments' => Comment::where('highlight_id',$highlight->id)->get(),
+            'like' => Like::where('highlight_id', '=', $highlight->id)->where('user_id', '=', auth()->user()->id)->first(),
+            'hasLike' => Like::where('highlight_id', '=', $highlight->id)->where('user_id', '=', auth()->user()->id)->exists(),
+            'hasCommentLikes' => CommentLike::where('highlight_id', '=', $highlight->id)->where('user_id', '=', auth()->user()->id)->get()
         ]);
     }
 }
