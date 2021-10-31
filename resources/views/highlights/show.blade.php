@@ -37,7 +37,13 @@
                                 <img class="highlight-selected-profile-image" src="{{$selected->user->profile_image}}">
                                 <a class="highlight-selected-profile-link">{{$selected->user->first_name}} {{Illuminate\Support\Str::limit($selected->user->middle_name,1,'.')}} {{$selected->user->prefix}} {{$selected->user->last_name}}</a>
                                 <span class="highlight-selected-profile-span" style="">•</span>
-                                <button class="highlight-selected-profile-button" type="button">Follow</button>
+                                <form method="post" action="/highlights/s/{{$selected->slug}}/follow" style="display: inline;">
+                                    @csrf
+                                    <input type="hidden" id="user_id" name="user_id" value="{{auth()->user()->id}}">
+                                    <input type="hidden" id="follow_id" name="follow_id" value="{{$selected->id}}">
+                                    <input type="hidden" id="follower_id" name="follower_id" value="{{auth()->user()->id}}">
+                                    <button class="highlight-selected-profile-button" type="submit">Follow</button>
+                                </form>
                             </div>
                             <div class="col-2 p-0 highlight-selected-header-options"></div>
                         </div>
