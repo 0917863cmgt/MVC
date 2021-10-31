@@ -3,9 +3,12 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CommentLikeController;
+use App\Http\Controllers\FollowController;
+use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\HighlightController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Models\Article;
@@ -48,6 +51,7 @@ Route::get('/highlights/s/{highlight:slug}', [HighlightController::class, 'show'
 Route::post('/highlights/s/{highlight:slug}/like', [LikeController::class, 'store'])->middleware('auth');
 Route::post('/highlights/s/{highlight:slug}/comments', [CommentController::class, 'store'])->middleware('auth');
 Route::post('/highlights/s/{highlight:slug}/like-comment', [CommentLikeController::class, 'store'])->middleware('auth');
+Route::post('/highlights/s/{highlight:slug}/follow', [FollowController::class, 'store'])->middleware('auth');
 
 Route::get('/shop', function () {
     return view('shop', [
@@ -55,15 +59,8 @@ Route::get('/shop', function () {
     ]);
 });
 
-Route::get('/u/{user:id}', function (User $user) {
-    return view('user', [
-        'user' => $user,
-        'highlights' => Highlight::where('user_id', $user->id)->paginate(3),
-        'statistic' => Statistic::where('user_id', $user->id)->get()->first(),
-        'followers' => Follower::where('user_id', $user->id)->get(),
-        'follows' => Follow::where('user_id', $user->id)->get(),
-    ]);
-});
+Route::get('/u/{user:id}', [ProfileController::class, 'show'])->middleware('auth');
+Route::post('/u/{user:id}/follow', [FollowController::class, 'store'])->middleware('auth');
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
