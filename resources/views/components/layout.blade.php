@@ -36,6 +36,9 @@
 </header>
 @if(session()->has('succes'))
     <p id="hideMe" class="flash-message">{{session('succes') ?? 'Geen succes flash message in session gevonden'}}</p>
+
+@elseif(session()->has('fail'))
+    <p id="hideMe" class="flash-message" style="background-color: darkred;color: black">{{session('fail') ?? 'Geen succes flash message in session gevonden'}}</p>
 @endif
 @yield('content')
 <footer id="footer" class="row">
