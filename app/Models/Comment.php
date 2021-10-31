@@ -10,6 +10,13 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'highlight_id',
+        'user_id',
+        'body',
+        'likes_amount'
+    ];
+
     protected $with=['user','commentlikes'];
 
     public function highlight(){

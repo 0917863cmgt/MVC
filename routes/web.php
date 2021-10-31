@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CommentLikeController;
 use App\Http\Controllers\HighlightController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Models\Article;
@@ -41,7 +44,10 @@ Route::get('/statistics', function () {
 });
 
 Route::get('/highlights', [HighlightController::class, 'index'])->middleware('auth');
-Route::get('/highlights/s/{highlight:slug}', [HighlightController::class, 'select'])->middleware('auth');
+Route::get('/highlights/s/{highlight:slug}', [HighlightController::class, 'show'])->middleware('auth');
+Route::post('/highlights/s/{highlight:slug}/like', [LikeController::class, 'store'])->middleware('auth');
+Route::post('/highlights/s/{highlight:slug}/comments', [CommentController::class, 'store'])->middleware('auth');
+Route::post('/highlights/s/{highlight:slug}/like-comment', [CommentLikeController::class, 'store'])->middleware('auth');
 
 Route::get('/shop', function () {
     return view('shop', [
