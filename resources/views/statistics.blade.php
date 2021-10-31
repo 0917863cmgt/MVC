@@ -16,7 +16,7 @@
                         </tr>
                         @foreach($statistics as $statistic)
                         <tr>
-                            <td>{{$statistic->player->first_name}} {{Illuminate\Support\Str::limit($statistic->player->middle_name,1,'.')}} {{$statistic->player->prefix}} {{$statistic->player->last_name}}</td>
+                            <td><a href="/u/{{$statistic->player->id}}">{{$statistic->player->first_name}} {{Illuminate\Support\Str::limit($statistic->player->middle_name,1,'.')}} {{$statistic->player->prefix}} {{$statistic->player->last_name}}</a></td>
                             <td>{{$statistic->rank}}</td>
                             <td>{{$statistic->rank_points}}</td>
                             <td>{{$statistic->matches_played}}</td>
