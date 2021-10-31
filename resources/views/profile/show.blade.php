@@ -18,6 +18,15 @@
                     <p>{{$user->bio}}</p>
                     <p>{{$followers->count()}} Followers</p>
                     <p>{{$follows->count()}} Following</p>
+                    @unless(auth()->user()->id === $user->id)
+                        <form method="post" action="/u/{{$user->id}}/follow" style="display: inline;">
+                            @csrf
+                            <input type="hidden" id="user_id" name="user_id" value="{{auth()->user()->id}}">
+                            <input type="hidden" id="follow_id" name="follow_id" value="{{$user->id}}">
+                            <input type="hidden" id="follower_id" name="follower_id" value="{{auth()->user()->id}}">
+                            <button class="highlight-selected-profile-button" type="submit">Follow</button>
+                        </form>
+                    @endunless
                 </div>
             </div>
             <div class="row data">
